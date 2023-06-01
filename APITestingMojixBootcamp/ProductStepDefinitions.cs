@@ -63,7 +63,7 @@ namespace APITestingMojixBootcamp
         [Given(@"I have an id with value (.*)")]
         public void GivenIHaveAnIdWithValue(int p0)
         {
-            throw new PendingStepException();
+            request.AddUrlSegment("id", 20);
         }
 
         [When(@"I send a Get request")]

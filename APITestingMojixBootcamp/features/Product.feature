@@ -6,7 +6,7 @@ Background:
 	Given I navigate to the url
 	And I have a new "POST" request
 	When I submit username and password
-	And I send a Post request
+	And I send a request
 	Then I expect a valid code response
 	And I expect to receive token 
     #* def token = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NTU5MzI1NiwiZXhwIjoxNjg1NTk2ODU2fQ.2f-Y7tsq-OF8FG4oPKfT-VKwX6f4jziF8XeGt0FUaaE'
@@ -15,7 +15,7 @@ Background:
 Scenario: A user is able to get a product with a valid ID
 	Given I have a new "GET" request
 	And I have an id with value 20
-	When I send a Get request
+	When I send a request
 	Then I expect a valid code response
 	And I expect that is same id 20
 
@@ -25,7 +25,7 @@ Scenario Outline: A user is able to update a product with a valid ID
 	And I have an id with value 19
 	And I send authorize token
 	And I send the following data: <name>, <description>, <image>, <price>, <categotyId>
-	When I send a Put request
+	When I send a request
 	Then I expect a valid code response
 	And I expect that is same price <expected>
 
@@ -37,7 +37,7 @@ Scenario Outline: A user is able to update a product with a valid ID
 Scenario: A user is able to get a list of products with a valid category ID
 	Given I have a new "GET" request
 	And I have an id with value 7
-	When I send a Get request
+	When I send a request
 	Then I expect a valid code response
 	#And I expect that is same id 7
 
@@ -46,7 +46,7 @@ Scenario: A user is able to create a new product
 	Given I have a new "POST" request
 	And I send authorize token
 	And I have the following data: <name>, <description>, <image>, <price>, <categotyId>
-	When I send a Post request
+	When I send a request
 	Then I expect a valid code response
 	And I expect that is same name <expected>
 
