@@ -35,8 +35,8 @@ namespace APITestingMojixBootcamp
         {
             request.AddJsonBody(new
             {
-                username = "admin",
-  		    	password = "admin"
+                username = username,
+  		    	password = password
             });
         }
 
