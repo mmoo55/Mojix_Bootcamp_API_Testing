@@ -24,10 +24,10 @@ namespace APITestingMojixBootcamp
             client = new RestClient(urlBase);
         }
 
-        [Given(@"I have a new (GET|POST|PUT) request")]
-        public void GivenIHaveANewRequest(string method)
+        [Given(@"I have a new (GET|POST|PUT) request to '(.*)'")]
+        public void GivenIHaveANewRequest(string method, string endpoint)
         {
-            request = new RestRequest("posts/{postid}", request.RestRequestFactory.CreateRequest(method));
+            request = new RestRequest(endpoint, request.RestRequestFactory.CreateRequest(method));
         }
 
         [When(@"I submit username and password")]

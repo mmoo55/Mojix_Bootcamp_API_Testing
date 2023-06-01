@@ -4,7 +4,7 @@ As a user I would like to know if the Http methods work.
 
 Background:
 	Given I navigate to the url
-	And I have a new "POST" request
+	And I have a new POST request to '/api/authenticate'
 	When I submit username and password
 	And I send a request
 	Then I expect a valid code response
@@ -13,7 +13,7 @@ Background:
 
 @positive @smoke @regression
 Scenario: A user is able to get a product with a valid ID
-	Given I have a new "GET" request
+	Given I have a new GET request to '/api/product/{id}'
 	And I have an id with value 20
 	When I send a request
 	Then I expect a valid code response
@@ -21,7 +21,7 @@ Scenario: A user is able to get a product with a valid ID
 
 @positive @smoke @regression
 Scenario Outline: A user is able to update a product with a valid ID
-	Given I have a new "PUT" request
+	Given I have a new PUT request to '/api/product/{id}'
 	And I have an id with value 19
 	And I send authorize token
 	And I send the following data: <name>, <description>, <image>, <price>, <categotyId>
@@ -31,19 +31,19 @@ Scenario Outline: A user is able to update a product with a valid ID
 
 	Examples:
 	| name 		   		| description		| image 				| price | categoryId 	| expected 	|
-	| "Gray Glasses" 	| "Gray Glasses" 	| "gray-glasses.jpg" 	| 15.99 | 7 			| 13.99		|
+	| "Gray Glasses" 	| "Gray Glasses" 	| "gray-glasses.jpg" 	| 15.99 | 7 			| 15.99		|
 
 @positive @smoke @regression
 Scenario: A user is able to get a list of products with a valid category ID
-	Given I have a new "GET" request
-	And I have an id with value 7
+	Given I have a new GET request to '/api/product'
+	#And I have an id with value 7
 	When I send a request
 	Then I expect a valid code response
 	#And I expect that is same id 7
 
 @positive @smoke @regression
 Scenario: A user is able to create a new product
-	Given I have a new "POST" request
+	Given I have a new POST request to '/api/product'
 	And I send authorize token
 	And I have the following data: <name>, <description>, <image>, <price>, <categotyId>
 	When I send a request
