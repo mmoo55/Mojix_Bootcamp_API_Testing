@@ -66,64 +66,73 @@ namespace APITestingMojixBootcamp
             request.AddUrlSegment("id", 20);
         }
 
-        [When(@"I send a Get request")]
-        public void WhenISendAGetRequest()
-        {
-            throw new PendingStepException();
-        }
-
         [Then(@"I expect that is same id (.*)")]
         public void ThenIExpectThatIsSameId(int p0)
         {
-            throw new PendingStepException();
+            var jsonObject = JObject.Parse(response.Content);
+            var result = jsonObject.SelectToken("id").ToString();
+            Assert.That(result, Is.EqualTo(p0), "Id is not correct");
         }
 
-        [Given(@"I have a new Put request")]
+        /* [Given(@"I have a new Put request")]
         public void GivenIHaveANewPutRequest()
         {
             throw new PendingStepException();
-        }
+        } */
 
         [Given(@"I send authorize token")]
         public void GivenISendAuthorizeToken()
         {
-            throw new PendingStepException();
+            request.AddHeader("Authorization", $"Bearer {token}");
         }
 
-        [Given(@"I send following data")]
-        public void GivenISendFollowingData(string multilineText)
+        [Given(@"I send following data: (.*), (.*), (.*), (.*)")]
+        public void GivenISendFollowingData(string name, string description, string image, string price, int categoryId)
         {
-            throw new PendingStepException();
+            request.AddBody(new
+            {
+             	name = name,
+  		    	description = description,
+  		    	image = image,
+  		    	price = price,
+  		    	categoryId = categoryId
+            });
         }
 
-        [When(@"I send a Put request")]
+        /* [When(@"I send a Put request")]
         public void WhenISendAPutRequest()
         {
             throw new PendingStepException();
-        }
+        } */
 
-        [Then(@"I expect that is same price ""([^""]*)""")]
+        /* [Then(@"I expect that is same price ""([^""]*)""")] */
+        [Then(@"I expect that is same price (.*)")]
         public void ThenIExpectThatIsSamePrice(string p0)
         {
-            throw new PendingStepException();
+            var jsonObject = JObject.Parse(response.Content);
+            var result = jsonObject.SelectToken("price").ToString();
+            Assert.That(result, Is.EqualTo(p0), "price is not correct");
         }
 
-        [Given(@"I have a new Post request")]
+        /* [Given(@"I have a new Post request")]
         public void GivenIHaveANewPostRequest()
         {
             throw new PendingStepException();
-        }
+        } */
 
-        [When(@"I send a Post request")]
+        /* [When(@"I send a Post request")]
         public void WhenISendAPostRequest()
         {
             throw new PendingStepException();
-        }
+        } */
 
-        [Then(@"I expect that is same name ""([^""]*)""")]
+        /* [Then(@"I expect that is same name ""([^""]*)""")] */
+        [Then(@"I expect that is same name (.*)")]
         public void ThenIExpectThatIsSameName(string p0)
         {
-            throw new PendingStepException();
+            var jsonObject = JObject.Parse(response.Content);
+            var result = jsonObject.SelectToken("name").ToString();
+            Assert.That(result, Is.EqualTo(p0), "Name is not correct");
         }
     }
 }
