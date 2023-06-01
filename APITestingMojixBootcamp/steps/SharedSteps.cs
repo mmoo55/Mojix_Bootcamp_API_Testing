@@ -1,5 +1,3 @@
-using Newtonsoft.Json.Linq;
-using RestSharp;
 using System;
 using TechTalk.SpecFlow;
 
@@ -8,56 +6,16 @@ namespace APITestingMojixBootcamp
     [Binding]
     public class ProductStepDefinitions
     {
-        RestClient client;
-        RestRequest request;
-        RestResponse response;
-
-        string token;
-
-        string urlBase = "http://localhost:3000/";
-        string username = "admin";
-        string password = "admin";
-
-        [Given(@"^I navigate to the url$")]
-        public void GivenINavigateToTheUrl()
+        [Given(@"def token = '([^']*)'")]
+        public void GivenDefToken(string p0)
         {
-            client = new RestClient(urlBase);
+            throw new PendingStepException();
         }
 
-        [Given(@"I have a new (GET|POST|PUT) request")]
-        public void GivenIHaveANewRequest(string method)
+        [Given(@"I have a new ""([^""]*)"" request")]
+        public void GivenIHaveANewRequest(string get)
         {
-            request = new RestRequest("posts/{postid}", request.RestRequestFactory.CreateRequest(method));
-        }
-
-        [When(@"I submit username and password")]
-        public void WhenISubmitUsernameAndPassword()
-        {
-            request.AddJsonBody(new
-            {
-                username = "admin",
-  		    	password = "admin"
-            });
-        }
-
-        [When(@"I send a request")]
-        public void WhenISendARequest()
-        {
-            response = restClient.Execute(request);
-        }
-
-        [Then(@"I expect a valid code response")]
-        public void ThenIExpectAValidCodeResponse()
-        {
-            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "The response code is not as expected");
-        }
-
-        [Then(@"{^I expect to receive token$")]
-        public void ThenIExpectToReceiveToken()
-        {
-            var jsonObject = JObject.Parse(response.Content);
-            token = jsonObject.SelectToken("token").ToString();
-            Assert.That(token, !Is.Empty, "Token is not correct");
+            throw new PendingStepException();
         }
 
         [Given(@"I have an id with value (.*)")]
@@ -68,6 +26,12 @@ namespace APITestingMojixBootcamp
 
         [When(@"I send a Get request")]
         public void WhenISendAGetRequest()
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"I expect a valid code response")]
+        public void ThenIExpectAValidCodeResponse()
         {
             throw new PendingStepException();
         }
