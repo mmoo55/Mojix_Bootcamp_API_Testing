@@ -1,0 +1,191 @@
+{
+  "uuid": "70cdd0cc377b4680a164a6677f416c5a",
+  "historyId": "A user is able to update a product with a valid ID-1001734288",
+  "fullName": "A user is able to update a product with a valid ID",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az812-505"
+    },
+    {
+      "name": "feature",
+      "value": "Product"
+    },
+    {
+      "name": "tag",
+      "value": "positive"
+    },
+    {
+      "name": "tag",
+      "value": "smoke"
+    },
+    {
+      "name": "tag",
+      "value": "regression"
+    }
+  ],
+  "links": [],
+  "name": "A user is able to update a product with a valid ID",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "Given  I navigate to the url",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758270,
+      "stop": 1685678758270
+    },
+    {
+      "name": "Given  I have a new PUT request to '/api/product/{id}'",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758270,
+      "stop": 1685678758270
+    },
+    {
+      "name": "And  I have an id with value 19",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758270,
+      "stop": 1685678758270
+    },
+    {
+      "name": "And  I send authorize token",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758270,
+      "stop": 1685678758271
+    },
+    {
+      "name": "And  I send the following data: \"Gray Glasses\", \"Gray Glasses\", \"gray-glasses.jpg\", 15.99, 7",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758271,
+      "stop": 1685678758271
+    },
+    {
+      "name": "When  I send a request",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758271,
+      "stop": 1685678758290
+    },
+    {
+      "name": "Then  I expect a valid code response",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758290,
+      "stop": 1685678758290
+    },
+    {
+      "name": "And  I expect that is same price 15.99",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685678758290,
+      "stop": 1685678758291
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "name",
+      "value": "\"Gray Glasses\""
+    },
+    {
+      "name": "description",
+      "value": "\"Gray Glasses\""
+    },
+    {
+      "name": "image",
+      "value": "\"gray-glasses.jpg\""
+    },
+    {
+      "name": "price",
+      "value": "15.99"
+    },
+    {
+      "name": "categoryId",
+      "value": "7"
+    },
+    {
+      "name": "expected",
+      "value": "15.99"
+    }
+  ],
+  "start": 1685678758270,
+  "stop": 1685678758291
+}
