@@ -1,0 +1,176 @@
+{
+  "uuid": "831c1662c3ea4e8ca3510017018a9673",
+  "historyId": "A user is able to create a new product-386373679",
+  "fullName": "A user is able to create a new product",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    },
+    {
+      "name": "host",
+      "value": "fv-az575-171"
+    },
+    {
+      "name": "feature",
+      "value": "Product"
+    },
+    {
+      "name": "tag",
+      "value": "positive"
+    },
+    {
+      "name": "tag",
+      "value": "smoke"
+    },
+    {
+      "name": "tag",
+      "value": "regression"
+    }
+  ],
+  "links": [],
+  "name": "A user is able to create a new product",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "steps": [
+    {
+      "name": "Given  I navigate to the url",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576669,
+      "stop": 1685677576679
+    },
+    {
+      "name": "Given  I have a new POST request to '/api/product'",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576680,
+      "stop": 1685677576683
+    },
+    {
+      "name": "And  I send authorize token",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576683,
+      "stop": 1685677576684
+    },
+    {
+      "name": "And  I send the following data: \"Purple Glasses\", \"Purple Glasses\", \"purple-glasses.jpg\", 13.99, 7",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576684,
+      "stop": 1685677576746
+    },
+    {
+      "name": "When  I send a request",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576747,
+      "stop": 1685677576908
+    },
+    {
+      "name": "Then  I expect a valid code response",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576908,
+      "stop": 1685677576921
+    },
+    {
+      "name": "And  I expect that is same name \"Purple Glasses\"",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [],
+      "parameters": [],
+      "start": 1685677576921,
+      "stop": 1685677576926
+    }
+  ],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "name",
+      "value": "\"Purple Glasses\""
+    },
+    {
+      "name": "description",
+      "value": "\"Purple Glasses\""
+    },
+    {
+      "name": "image",
+      "value": "\"purple-glasses.jpg\""
+    },
+    {
+      "name": "price",
+      "value": "13.99"
+    },
+    {
+      "name": "categoryId",
+      "value": "7"
+    },
+    {
+      "name": "expected",
+      "value": "\"Purple Glasses\""
+    }
+  ],
+  "start": 1685677576660,
+  "stop": 1685677576928
+}
