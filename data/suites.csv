@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Jun 02 03:46:18 GMT 2023","Fri Jun 02 03:46:18 GMT 2023","144","","","","","","A user is able to update a product with a valid ID",""
+"passed","Fri Jun 02 03:46:17 GMT 2023","Fri Jun 02 03:46:17 GMT 2023","154","","","","","","A user is able to get a list of products with a valid category ID",""
+"passed","Fri Jun 02 03:46:17 GMT 2023","Fri Jun 02 03:46:17 GMT 2023","147","","","","","","A user is able to get a product with a valid ID",""
+"passed","Fri Jun 02 03:46:16 GMT 2023","Fri Jun 02 03:46:16 GMT 2023","268","","","","","","A user is able to create a new product",""
