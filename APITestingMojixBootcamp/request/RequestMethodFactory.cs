@@ -1,30 +1,35 @@
+using RestSharp;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace APITestingMojixBootcamp.request
 {
-    public class RestRequestFactory
+    public class RequestMethodFactory
     {
-        public static IRestRequest CreateRequest(string method)
+        public static Method CreateRequest(string method)
         {
-            IRestRequestMethod requestMethod;
+            Method requestMethod;
 
             switch (method.ToUpperInvariant())
             {
                 case "GET":
-                    requestMethod = new GetRequestMethod();
+                    requestMethod = Method.Get;
                     break;
                 case "POST":
-                    requestMethod = new PostRequestMethod();
+                    requestMethod = Method.Post;
                     break;
                 case "PUT":
-                    requestMethod = new PutRequestMethod();
+                    requestMethod = Method.Put;
                     break;
                 default:
                     throw new ArgumentException($"HTTP method not supported: {method}");
             }
 
-            return requestMethod.CreateRequest();
+            return requestMethod;
         }
     }
 }

@@ -78,8 +78,7 @@ namespace APITestingMojixBootcamp.Features
 #line 5
 #line hidden
 #line 6
-    testRunner.And("def token = \'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY4NTU5MzI1NiwiZXh" +
-                    "wIjoxNjg1NTk2ODU2fQ.2f-Y7tsq-OF8FG4oPKfT-VKwX6f4jziF8XeGt0FUaaE\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.Given("I navigate to the url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -110,13 +109,13 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 10
- testRunner.Given("I have a new \"Get\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a new GET request to \'/api/product/{id}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
  testRunner.And("I have an id with value 20", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.When("I send a Get request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send a request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then("I expect a valid code response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -133,13 +132,25 @@ this.FeatureBackground();
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public void AUserIsAbleToUpdateAProductWithAValidID()
+        [NUnit.Framework.TestCaseAttribute("\"Gray Glasses\"", "\"Gray Glasses\"", "\"gray-glasses.jpg\"", "15.99", "7", "15.99", null)]
+        public void AUserIsAbleToUpdateAProductWithAValidID(string name, string description, string image, string price, string categoryId, string expected, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "positive",
                     "smoke",
                     "regression"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("image", image);
+            argumentsOfScenario.Add("price", price);
+            argumentsOfScenario.Add("categoryId", categoryId);
+            argumentsOfScenario.Add("expected", expected);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A user is able to update a product with a valid ID", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
 this.ScenarioInitialize(scenarioInfo);
@@ -155,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 18
- testRunner.Given("I have a new Put request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a new PUT request to \'/api/product/{id}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
  testRunner.And("I have an id with value 19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -164,17 +175,16 @@ this.FeatureBackground();
  testRunner.And("I send authorize token", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 21
- testRunner.And("I send following data", "   {\r\n\tname = \"Purple Glasses\",\r\n \t\tdescription = \"Purple Glasses\",\r\n \t\timage = \"" +
-                        "purple-glasses.jpg\",\r\n \t\tprice = \"13.99\",\r\n \t\tcategoryId = 7\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I send the following data: {0}, {1}, {2}, {3}, {4}", name, description, image, price, categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 31
- testRunner.When("I send a Put request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
+ testRunner.When("I send a request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 32
+#line 23
  testRunner.Then("I expect a valid code response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 33
- testRunner.And("I expect that is same price \"13.99\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.And(string.Format("I expect that is same price {0}", expected), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -193,7 +203,7 @@ this.FeatureBackground();
                     "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A user is able to get a list of products with a valid category ID", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 36
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -206,17 +216,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 37
- testRunner.Given("I have a new \"Get\" request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 32
+ testRunner.Given("I have a new GET request to \'/api/product\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 38
- testRunner.And("I have an id with value 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.When("I send a request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 39
- testRunner.When("I send a Get request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 40
+#line 34
  testRunner.Then("I expect a valid code response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 35
+ testRunner.And("I expect a list of product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -227,15 +237,27 @@ this.FeatureBackground();
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.CategoryAttribute("smoke")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public void AUserIsAbleToCreateANewProduct()
+        [NUnit.Framework.TestCaseAttribute("\"Purple Glasses\"", "\"Purple Glasses\"", "\"purple-glasses.jpg\"", "13.99", "7", "\"Purple Glasses\"", null)]
+        public void AUserIsAbleToCreateANewProduct(string name, string description, string image, string price, string categoryId, string expected, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "positive",
                     "smoke",
                     "regression"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("image", image);
+            argumentsOfScenario.Add("price", price);
+            argumentsOfScenario.Add("categoryId", categoryId);
+            argumentsOfScenario.Add("expected", expected);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A user is able to create a new product", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 44
+#line 38
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -248,24 +270,23 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 45
- testRunner.Given("I have a new Post request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
+ testRunner.Given("I have a new POST request to \'/api/product\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 46
+#line 40
  testRunner.And("I send authorize token", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 47
- testRunner.And("I send following data", "   {\r\n\tname = \"Purple Glasses\",\r\n \t\tdescription = \"Purple Glasses\",\r\n \t\timage = \"" +
-                        "purple-glasses.jpg\",\r\n \t\tprice = \"13.99\",\r\n \t\tcategoryId = 7\r\n   }", ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.And(string.Format("I send the following data: {0}, {1}, {2}, {3}, {4}", name, description, image, price, categoryId), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 57
- testRunner.When("I send a Post request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.When("I send a request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 58
+#line 43
  testRunner.Then("I expect a valid code response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 59
- testRunner.And("I expect that is same name \"Purple Glasses\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+ testRunner.And(string.Format("I expect that is same name {0}", expected), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
